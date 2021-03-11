@@ -1,0 +1,7 @@
+name: fix
+dependencies:
+  - python=3.8
+  - pip
+  - pip:
+      # if you do not have c compiler then get from https://www.lfd.uci.edu/~gohlke/pythonlibs/#quickfix
+      - quickfix
