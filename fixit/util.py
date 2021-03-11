@@ -2,6 +2,7 @@ from typing import Optional, Union
 from pathlib import Path
 import os
 import logging
+import datetime as dt
 
 TypePath = Union[Path, str, bytes, os.PathLike]
 
@@ -32,3 +33,11 @@ def get_logger(
     logger.addHandler(stream_handler)
 
     return logger
+
+
+def get_timestamp_fix(
+        datetime: Optional[dt.datetime] = None,
+) -> str:
+    if datetime is None:
+        datetime = dt.datetime.utcnow()
+    return datetime.strftime('%Y%m%d-%H:%M:%S.%f')[:-3]
