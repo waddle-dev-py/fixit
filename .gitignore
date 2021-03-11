@@ -3,6 +3,7 @@ logs/*
 sessions/*
 !sessions/.gitkeep
 settings.cfg
+stunnel.conf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
