@@ -5,3 +5,4 @@ dependencies:
   - pip:
       # if you do not have c compiler then get from https://www.lfd.uci.edu/~gohlke/pythonlibs/#quickfix
       - quickfix
+      - python-dotenv
