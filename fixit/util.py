@@ -19,7 +19,7 @@ def get_logger(
         level = logging.INFO
 
     if path_folder is None:
-        path_folder = Path('../logs')
+        path_folder = Path('./logs')
 
     logger = logging.getLogger(name)
     logger.setLevel(level)

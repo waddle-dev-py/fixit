@@ -1,17 +1,18 @@
 import os
+from pathlib import Path
 
 import quickfix as fix
 from dotenv import load_dotenv
 
-from application import Application
+from fixit.application import Application
 
 _ = load_dotenv()
 
 
-def main(filename):
+def main(path):
 
     try:
-        settings = fix.SessionSettings(filename)
+        settings = fix.SessionSettings(path.name)
         application = Application(
             username=os.environ['FIX_USERNAME'],
             password=os.environ['FIX_PASSWORD'],
@@ -29,4 +30,4 @@ def main(filename):
 
 
 if __name__ == '__main__':
-    main(filename='settings.cfg')
+    main(path=Path('settings.cfg'))
