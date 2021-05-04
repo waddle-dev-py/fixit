@@ -4,6 +4,7 @@ import logging
 import datetime
 
 import pytest
+import quickfix
 
 import fixit.util
 
@@ -53,3 +54,11 @@ def test_get_logger(args, kwargs, setup_get_logger):
 def test_get_timestamp_fix(args, kwargs, expected):
     timestamp_fix = fixit.util.get_timestamp_fix(*args, **kwargs)
     assert timestamp_fix == expected
+
+
+@pytest.mark.parametrize('args, kwargs, expected', [
+    ([], dict(message=quickfix.Message()), '9=0|10=167|')
+])
+def test_parse_message_fix(args, kwargs, expected):
+    parsed = fixit.util.parse_message_fix(*args, **kwargs)
+    assert parsed == expected

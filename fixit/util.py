@@ -4,6 +4,8 @@ import os
 import logging
 import datetime as dt
 
+import quickfix
+
 TypePath = Union[Path, str, bytes, os.PathLike]
 
 
@@ -41,3 +43,9 @@ def get_timestamp_fix(
     if datetime is None:
         datetime = dt.datetime.utcnow()
     return datetime.strftime('%Y%m%d-%H:%M:%S.%f')[:-3]
+
+
+def parse_message_fix(
+        message: quickfix.Message,
+) -> str:
+    return message.toString().replace('\x01', '|')
